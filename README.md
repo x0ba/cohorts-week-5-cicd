@@ -40,5 +40,48 @@ How to use this repo today
 
 If you want the error-filled file separated into its own file, let me know and I will add it (for now it's embedded above so it's easy to copy/paste during the session).
 
+What will happen today — setup plan
+We will walk through a simple setup to make the repository ready for development and CI checks. The main steps are:
+
+1. Initialize a Node package (creates `package.json`).
+2. Install and configure Prettier for consistent formatting.
+3. Install and configure ESLint for linting and basic code quality rules.
+4. Install Husky and add a pre-commit hook to run format/lint before commits.
+
+Example commands (copy/paste in your terminal)
+
+```bash
+# 1) initialize npm package
+npm init -y
+
+# 2) install prettier and add a format script
+npm install --save-dev prettier
+# add to package.json scripts: "format": "prettier --write ."
+
+# 3) install eslint and a minimal config
+npm install --save-dev eslint
+npx eslint --init
+# or create a minimal .eslintrc.* and add a lint script: "lint": "eslint . --ext .js,.ts"
+
+# 4) install husky and set up a pre-commit hook to run format and lint
+npm install --save-dev husky
+npx husky install
+npx husky add .husky/pre-commit "npm run format && npm run lint"
+```
+
+Suggested `package.json` scripts (example)
+
+```json
+"scripts": {
+	"format": "prettier --write .",
+	"lint": "eslint . --ext .js,.ts"
+}
+```
+
+Notes and tips
+- During the live session we'll demonstrate `npx eslint --init` and a quick `.prettierrc` file so everyone's on the same page.
+- Husky hooks run locally before commits; we can also add CI checks (GitHub Actions) later to enforce the same checks on push/PRs.
+- If you'd like, I can add these configs and scripts directly to the repo now (including a separate `error-sample.js` file). Tell me which you'd prefer and I'll implement it.
+
 ---
 
