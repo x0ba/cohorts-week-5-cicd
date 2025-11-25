@@ -1,8 +1,9 @@
-# Week 5 — CI/CD 
+# Week 5 — CI/CD
 
 This repository contains the files we'll use during the Week 5 CI/CD session and an intentionally "error-filled" example file used for linting/formatting exercises.
 
 Files we'll be using today
+
 - `code.ts` — main TypeScript exercise file.
 - `eslint.config.mts` — ESLint configuration used in the workshop.
 - `package.json` — project metadata and scripts (install/test/lint).
@@ -14,26 +15,33 @@ Fake "error-filled" file (for the linting/formatting exercise)
 The following is the raw contents of the example file we'll use in class. It's intentionally messy so you can practice linting, formatting, and fixing errors.
 
 ```javascript
-function   sayHello(name ){console.log("Hello " +   name )
+function sayHello(name) {
+  console.log('Hello ' + name);
 }
 
-function add(a , b){ const   c =  a +b ; return  c }
-
-async function   main ( ){
- const user="Brandon"
-sayHello(   user )
-const result=add(  5 ,   10 )   
- console.log("result:",result )
- const unused=123
- if(result>10){console.log("big number")
- }else{ console.log("small")}
-
+function add(a, b) {
+  const c = a + b;
+  return c;
 }
 
- main(   )
+async function main() {
+  const user = 'Brandon';
+  sayHello(user);
+  const result = add(5, 10);
+  console.log('result:', result);
+  const unused = 123;
+  if (result > 10) {
+    console.log('big number');
+  } else {
+    console.log('small');
+  }
+}
+
+main();
 ```
 
 How to use this repo today
+
 - Open `code.ts` and follow the exercise comments.
 - Run the linter/formatter (we'll use the project's ESLint config) and apply fixes to the error-filled file sample.
 - Use `package.json` scripts for install/test/lint where applicable.
@@ -79,9 +87,9 @@ Suggested `package.json` scripts (example)
 ```
 
 Notes and tips
+
 - During the live session we'll demonstrate `npx eslint --init` and a quick `.prettierrc` file so everyone's on the same page.
 - Husky hooks run locally before commits; we can also add CI checks (GitHub Actions) later to enforce the same checks on push/PRs.
 - If you'd like, I can add these configs and scripts directly to the repo now (including a separate `error-sample.js` file). Tell me which you'd prefer and I'll implement it.
 
 ---
-
